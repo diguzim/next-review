@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>Next review</title>
         <link rel="icon" href="/favicon.ico" />
@@ -15,6 +15,6 @@ export default function Home() {
           <Link href="/creatures">Creatures</Link>
         </h2>
       </main>
-    </div>
+    </>
   )
 }
