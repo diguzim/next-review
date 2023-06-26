@@ -13,9 +13,11 @@ export default function Creatures({ creatures }: { creatures: any[] }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Creatures</h2>
         <ul className={utilStyles.list}>
-          {creatures.map(({ id, name }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {name}
+          {creatures.map(({ _id, name }) => (
+            <li className={utilStyles.listItem} key={_id}>
+              <Link href={`/creatures/${_id}`}>
+                {name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -25,20 +27,10 @@ export default function Creatures({ creatures }: { creatures: any[] }) {
 }
 
 export async function getStaticProps() {
-  const creatures = [
-    {
-      "id": "6490481c8f6dd2b0bd3bafbb",
-      "name": "Orc"
-    },
-    {
-      "id": "6490483b39a7933ff1535e09",
-      "name": "Troll"
-    },
-    {
-      "id": "6490486679ba4f9ff19e1609",
-      "name": "Demon"
-    }
-  ]
+  const url = `${process.env.BACKEND_HOST}/creatures`
+  const res = await fetch(url);
+  const creatures = await res.json();
+  console.log(creatures);
 
   return {
     props: {
