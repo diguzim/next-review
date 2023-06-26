@@ -1,5 +1,4 @@
-import React from 'react';
-import './button.css';
+import styles from './button.module.css';
 
 interface ButtonProps {
   /**
@@ -27,18 +26,20 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+const Button = ({
   primary = false,
   size = 'medium',
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? styles.button_primary : styles.button_secondary;
+  const sizeClassName = styles[`button_${size}`];
+
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={[styles.button, sizeClassName, mode].join(' ')}
       {...props}
     >
       {label}
@@ -50,3 +51,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;
