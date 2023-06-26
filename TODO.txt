@@ -2,3 +2,4 @@
 - Fetch data from backend
 - Configure environment variables
 - Create a proper creatures page
+- Configure storybook

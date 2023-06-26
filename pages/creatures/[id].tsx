@@ -2,8 +2,10 @@ import Head from 'next/head';
 import Layout from '@/components/layout';
 
 import utilStyles from '@/styles/utils.module.css';
+import { CreatureService } from '@/lib';
+import { Creature } from '@/types';
 
-export default function Creature({ creature }: { creature: any }) {
+export default function Creature({ creature }: { creature: Creature }) {
   return (
     <Layout>
       <Head>
@@ -17,9 +19,7 @@ export default function Creature({ creature }: { creature: any }) {
 }
 
 export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
-  const url = `${process.env.BACKEND_HOST}/creatures/${id}`
-  const res = await fetch(url);
-  const creature = await res.json();
+  const creature = await CreatureService.get(id);
 
   return {
     props: {
@@ -29,14 +29,12 @@ export async function getStaticProps({ params: { id } }: { params: { id: string 
 }
 
 export async function getStaticPaths() {
-  const url = `${process.env.BACKEND_HOST}/creatures`
-  const res = await fetch(url);
-  const creatures = await res.json();
+  const creatures = await CreatureService.getAll();
 
-  const paths = creatures.map((creature: any) => {
+  const paths = creatures.map((creature: Creature) => {
     return {
       params: {
-        id: creature._id,
+        id: creature.id,
       }
     }
   });
