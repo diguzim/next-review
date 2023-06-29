@@ -3,12 +3,20 @@ import Image from 'next/image';
 import styles from './navbar.module.css';
 import utilStyles from '@/styles/utils.module.css';
 import Link from 'next/link';
+import Button from '../button';
 
 interface NavbarProps {
 
 }
 
 const Navbar: React.FC<NavbarProps> = ({ }) => {
+  const onLogin = () => {
+    console.log('Login');
+  }
+  const onCreateAccount = () => {
+    console.log('Create account');
+  }
+
   return (
     <nav className={styles.container}>
       <Link href="/" className={utilStyles.colorInherit}>
@@ -30,6 +38,10 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
       <Link href="/creatures" className={styles.navbarElement}>
         Something
       </Link>
+      <div className={utilStyles.right}>
+        <Button primary size="small" onClick={onLogin} label="Log in" className={styles.navbarElement} />
+        <Button primary size="small" onClick={onCreateAccount} label="Sign up" className={styles.navbarElement} />
+      </div>
     </nav>
   );
 }

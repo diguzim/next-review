@@ -21,6 +21,8 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+
+  className?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ const Button = ({
   size = 'medium',
   backgroundColor,
   label,
+  className,
   ...props
 }: ButtonProps) => {
   const mode = primary ? styles.button_primary : styles.button_secondary;
@@ -39,7 +42,7 @@ const Button = ({
   return (
     <button
       type="button"
-      className={[styles.button, sizeClassName, mode].join(' ')}
+      className={[styles.button, sizeClassName, mode, className].join(' ')}
       {...props}
     >
       {label}
