@@ -1,0 +1,20 @@
+.textInput {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.textInput label {
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.textInput input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
