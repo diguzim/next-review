@@ -18,11 +18,7 @@ interface TextInputProps {
   /**
    * What is the onChange for this input?
    */
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  /**
-   * What is the className for this input?
-   */
-  className?: string;
+  onChangeText?: (value: string) => void;
   /**
    * What is the type for this input?
    * @default text
@@ -38,8 +34,7 @@ const TextInput = ({
   label,
   placeholder,
   value,
-  onChange,
-  className,
+  onChangeText,
   type = 'text',
   ...props
 }: TextInputProps) => {
@@ -51,11 +46,17 @@ const TextInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={className}
+        name={label}
         {...props}
       />
     </div>
   );
+
+  function onChange(event: React.ChangeEvent<HTMLInputElement>) {
+    if (onChangeText) {
+      onChangeText(event.target.value);
+    }
+  }
 }
 
 export default TextInput;
