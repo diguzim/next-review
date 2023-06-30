@@ -1,4 +1,5 @@
-import styles from './button.module.css';
+import { capitalizeFirstLetter } from '@/utils';
+import styles from './Button.module.css';
 
 interface ButtonProps {
   /**
@@ -36,8 +37,8 @@ const Button = ({
   className,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? styles.button_primary : styles.button_secondary;
-  const sizeClassName = styles[`button_${size}`];
+  const mode = primary ? styles.buttonPrimary : styles.buttonSecondary;
+  const sizeClassName = styles[`button${capitalizeFirstLetter(size)}`];
 
   return (
     <button

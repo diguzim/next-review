@@ -1,4 +1,4 @@
-import styles from './text-input.module.css';
+import styles from './TextInput.module.css';
 
 // <TextInput label="Email" placeholder="Enter your email" value="me@me" onChange={handleChange} className="my-custom-class" type="text" />
 
@@ -28,7 +28,7 @@ interface TextInputProps {
    * @default text
    * @optional
    */
-  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date' | 'time' | 'datetime-local' | 'month' | 'week' | 'color' | 'file' | 'image' | 'range' | 'hidden' | 'button' | 'submit' | 'reset' | 'checkbox' | 'radio' | 'select' | 'textarea' | 'time' | 'date' | 'datetime-local' | 'month' | 'week' | 'color' | 'file' | 'image' | 'range' | 'hidden' | 'button' | 'submit' | 'reset' | 'checkbox' | 'radio' | 'select' | 'textarea';
+  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date' | 'time' | 'datetime-local' | 'month' | 'week' | 'color' | 'file' | 'range' | 'hidden' | 'checkbox' | 'radio' | 'textarea';
 }
 
 /**

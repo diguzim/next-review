@@ -1,10 +1,7 @@
 import { ReactNode } from "react";
 import Head from 'next/head';
-import Image from "next/image";
-import Link from "next/link";
 
-import styles from './layout.module.css';
-import utilStyles from '@/styles/utils.module.css';
+import styles from './Layout.module.css';
 import Navbar from "@/components/Navbar";
 
 export const siteTitle = 'Reviewing Next.js';
