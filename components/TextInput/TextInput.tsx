@@ -40,13 +40,14 @@ const TextInput = ({
 }: TextInputProps) => {
   return (
     <div className={styles.textInput}>
-      <label>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         name={label}
+        id={label}
         {...props}
       />
     </div>

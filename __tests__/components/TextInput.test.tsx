@@ -22,6 +22,7 @@ describe('TextInput', () => {
 
     expect(labelElement).toBeInTheDocument()
     expect(labelElement).toHaveTextContent(label)
+    expect(labelElement).toHaveAttribute('for', label)
 
     const inputElement = screen.getByRole('textbox')
 
@@ -29,6 +30,7 @@ describe('TextInput', () => {
     expect(inputElement).toHaveAttribute('value', value)
     expect(inputElement).toHaveAttribute('placeholder', placeholder)
     expect(inputElement).toHaveAttribute('name', label)
+    expect(inputElement).toHaveAttribute('id', label)
 
     inputElement.focus()
     expect(inputElement).toHaveFocus()
