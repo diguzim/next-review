@@ -10,19 +10,11 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
   return (
     <Layout>
       <Head>
-        <title>Creatures</title>
+        <title>Sign up</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Creatures</h2>
-        <ul className={utilStyles.list}>
-          {creatures.map(({ id, name }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/creatures/${id}`}>
-                {name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <h2 className={utilStyles.headingLg}>Sign up</h2>
+        
       </section>
     </Layout>
   );

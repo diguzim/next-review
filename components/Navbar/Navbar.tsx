@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './navbar.module.css';
 import utilStyles from '@/styles/utils.module.css';
 import Link from 'next/link';
-import Button from '../button';
+import Button from '../Button';
 
 interface NavbarProps {
 
@@ -39,8 +39,12 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
         Something
       </Link>
       <div className={utilStyles.right}>
-        <Button primary size="small" onClick={onLogin} label="Log in" className={styles.navbarElement} />
-        <Button primary size="small" onClick={onCreateAccount} label="Sign up" className={styles.navbarElement} />
+        <Link href="/creatures" className={styles.navbarElement}>
+          <Button primary size="small" onClick={onLogin} label="Log in" />
+        </Link>
+        <Link href="/creatures" className={styles.navbarElement}>
+          <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+        </Link>
       </div>
     </nav>
   );

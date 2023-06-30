@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import styles from './layout.module.css';
 import utilStyles from '@/styles/utils.module.css';
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 
 export const siteTitle = 'Reviewing Next.js';
 
