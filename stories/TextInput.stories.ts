@@ -16,7 +16,7 @@ const meta: Meta<typeof TextInput> = {
     value: {
       control: 'text',
     },
-    onChange: {
+    onChangeText: {
       action: 'onChange',
     },
   },

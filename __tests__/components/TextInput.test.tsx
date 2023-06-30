@@ -7,7 +7,6 @@ describe('TextInput', () => {
     const label = 'Some Label'
     const placeholder = 'Some Placeholder'
     const value = 'Some Value'
-    const className = 'Some ClassName' // Yes, plural here is also nice for testing purposes
     const onChangeText = jest.fn()
 
     render(
@@ -37,7 +36,6 @@ describe('TextInput', () => {
     inputElement.blur()
     expect(inputElement).not.toHaveFocus()
 
-    // write me a test for the onChange event
     fireEvent.change(inputElement, { target: { value: 'new value' }})
 
     expect(onChangeText).toHaveBeenCalledTimes(1)
