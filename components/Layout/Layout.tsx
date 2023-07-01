@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <header className={styles.header}>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   )
 }
