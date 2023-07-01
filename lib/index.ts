@@ -1,1 +1,2 @@
-export * from './creatureService';
+export * from './CreatureService';
+export * from './UserService';

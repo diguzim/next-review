@@ -54,3 +54,8 @@
 .right {
   margin-left: auto;
 }
+
+.alert {
+  color: red;
+  font-weight: bold;
+}

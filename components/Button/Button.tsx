@@ -24,12 +24,15 @@ interface ButtonProps {
   onClick?: () => void;
 
   className?: string;
+
+  type?: 'button' | 'submit' | 'reset';
 }
 
 /**
  * Primary UI component for user interaction
  */
 const Button = ({
+  type = 'button',
   primary = false,
   size = 'medium',
   backgroundColor,
@@ -42,7 +45,7 @@ const Button = ({
 
   return (
     <button
-      type="button"
+      type={type}
       className={[styles.button, sizeClassName, mode, className].join(' ')}
       {...props}
     >

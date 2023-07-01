@@ -10,13 +10,6 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ }) => {
-  const onLogin = () => {
-    console.log('Login');
-  }
-  const onCreateAccount = () => {
-    console.log('Create account');
-  }
-
   return (
     <nav className={styles.container}>
       <Link href="/" className={utilStyles.colorInherit}>
@@ -40,10 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
       </Link>
       <div className={utilStyles.right}>
         <Link href="/creatures" className={styles.navbarElement}>
-          <Button primary size="small" onClick={onLogin} label="Log in" />
+          <Button primary size="small" label="Log in" />
         </Link>
-        <Link href="/creatures" className={styles.navbarElement}>
-          <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+        <Link href="/register" className={styles.navbarElement}>
+          <Button primary size="small" label="Sign up" />
         </Link>
       </div>
     </nav>
