@@ -3,9 +3,9 @@ import Layout from "@/components/Layout";
 import TextInput from "@/components/TextInput";
 
 import utilStyles from '@/styles/utils.module.css';
-import Button from "@/components/Button";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Form from "@/components/Form";
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -22,14 +22,12 @@ export default function Register() {
         <title>Sign up</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h1 className={utilStyles.headingLg}>Sign up</h1>
         { error && <h2 className={utilStyles.alert}>{error}</h2> }
-        <form onSubmit={onSubmit}>
+        <Form title="Create your account" onSubmit={onSubmit}>
           <TextInput label="Name" value={name} onChangeText={setName} />
           <TextInput label="Email" value={email} onChangeText={setEmail} />
-          <TextInput label="password" value={password} onChangeText={setPassword} />
-          <Button type="submit" primary size="large" label="Submit" />
-        </form>
+          <TextInput label="Password" type="password" value={password} onChangeText={setPassword} />
+        </Form>
       </section>
     </Layout>
   );
