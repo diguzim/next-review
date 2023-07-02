@@ -33,10 +33,10 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
       </Link>
       <div className={utilStyles.right}>
         <Link href="/creatures" className={styles.navbarElement}>
-          <Button primary size="small" label="Log in" />
+          <Button primary size="large" label="Login" />
         </Link>
         <Link href="/register" className={styles.navbarElement}>
-          <Button primary size="small" label="Sign up" />
+          <Button primary size="large" label="Register" />
         </Link>
       </div>
     </nav>

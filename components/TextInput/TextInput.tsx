@@ -27,9 +27,6 @@ interface TextInputProps {
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date' | 'time' | 'datetime-local' | 'month' | 'week' | 'color' | 'file' | 'range' | 'hidden' | 'checkbox' | 'radio' | 'textarea';
 }
 
-/**
- * Primary UI component for user interaction
- */
 const TextInput = ({
   label,
   placeholder,

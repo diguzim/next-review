@@ -8,10 +8,12 @@ interface ButtonProps {
   primary?: boolean;
   /**
    * What background color to use
+   * @default primary
    */
   backgroundColor?: string;
   /**
    * How large should the button be?
+   * @default medium
    */
   size?: 'small' | 'medium' | 'large';
   /**
@@ -33,7 +35,7 @@ interface ButtonProps {
  */
 const Button = ({
   type = 'button',
-  primary = false,
+  primary = true,
   size = 'medium',
   backgroundColor,
   label,

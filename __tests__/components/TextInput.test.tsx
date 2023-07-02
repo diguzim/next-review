@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import TextInput from '@/components/TextInput'
-import '@testing-library/jest-dom'
  
 describe('TextInput', () => {
   it('finds the expected elements', () => {
