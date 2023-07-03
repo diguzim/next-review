@@ -10,7 +10,7 @@ export default function Register() {
         <title>Sign up</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h1 className={utilStyles.headingLg}>Thanks for registering</h1>
+        <h1 className={utilStyles.headingLg}>You are logged in</h1>
       </section>
     </Layout>
   );

@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
         Something
       </Link>
       <div className={utilStyles.right}>
-        <Link href="/creatures" className={styles.navbarElement}>
+        <Link href="/login" className={styles.navbarElement}>
           <Button primary size="large" label="Login" />
         </Link>
         <Link href="/register" className={styles.navbarElement}>
