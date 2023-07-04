@@ -4,15 +4,18 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState
 interface AuthorizationTokenContextProps {
   authorizationToken: AuthorizationToken;
   setAuthorizationToken: (newValue: AuthorizationToken) => void;
+  isAuthorizationTokenLoaded: boolean;
 }
 
 export const AuthorizationTokenContext = createContext<AuthorizationTokenContextProps>({} as AuthorizationTokenContextProps);
 
 export const AuthorizationTokenProvider = ({ children }: { children: ReactNode }) => {
   const [authorizationToken, setAuthorizationToken] = useState<AuthorizationToken>(null);
+  const [isAuthorizationTokenLoaded, setIsAuthorizationTokenLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setAuthorizationToken(localStorage.getItem('authorizationToken'));
+    setIsAuthorizationTokenLoaded(true);
   }, [setAuthorizationToken]);
 
   function setAuthorizationTokenAndLocalStorage(authorizationToken: AuthorizationToken) {
@@ -29,7 +32,8 @@ export const AuthorizationTokenProvider = ({ children }: { children: ReactNode }
     <AuthorizationTokenContext.Provider
       value={{
         authorizationToken,
-        setAuthorizationToken: setAuthorizationTokenAndLocalStorage as Dispatch<SetStateAction<AuthorizationToken>>
+        setAuthorizationToken: setAuthorizationTokenAndLocalStorage as Dispatch<SetStateAction<AuthorizationToken>>,
+        isAuthorizationTokenLoaded
       }}
     >
       {children}
