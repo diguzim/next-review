@@ -4,8 +4,11 @@ import { CreatureService } from "@/lib";
 
 import utilStyles from '@/styles/utils.module.css';
 import { Creature } from "@/types";
+import { useAuth } from "@/hooks";
 
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
+  const { isLoggedIn } = useAuth();
+
   return (
     <>
       <Head>
@@ -21,7 +24,11 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
           </li>
         ))}
       </ul>
-      {/* TODO: if user is logged in show some create creature button */}
+      {isLoggedIn && (
+        <Link href="/creatures/new">
+          Create new creature
+        </Link>
+      )}
     </>
   );
 }
