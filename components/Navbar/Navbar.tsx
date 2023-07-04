@@ -1,17 +1,14 @@
+import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
+import { AuthenticationTokenContext } from '@/contexts';
 
 import styles from './Navbar.module.css';
 import utilStyles from '@/styles/utils.module.css';
-import { useEffect, useState } from 'react';
 
 export function Navbar() {
-  const [authenticationToken, setAuthenticationToken] = useState(null as null || String);
-
-  useEffect(() => {
-    setAuthenticationToken(localStorage.getItem('authenticationToken') as string);
-  }, [setAuthenticationToken]);
+  const { authenticationToken } = useContext(AuthenticationTokenContext);
   
   return (
     <nav className={styles.container}>

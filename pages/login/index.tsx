@@ -2,10 +2,11 @@ import Head from "next/head";
 import TextInput from "@/components/TextInput";
 import Form from "@/components/Form";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
 import utilStyles from '@/styles/utils.module.css';
+import { AuthenticationTokenContext } from "@/contexts";
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ export default function Register() {
   const [error, setError] = useState(null)
 
   const router = useRouter();
+  const { setAuthenticationToken } = useContext(AuthenticationTokenContext);
   
   return (
     <>
@@ -41,7 +43,7 @@ export default function Register() {
     
     if (response.ok) {
       setError(null);
-      localStorage.setItem('authenticationToken', result.authenticationToken);
+      setAuthenticationToken(result.authenticationToken);
       router.push('/login/success');
     } else {
       setError(result.error);
