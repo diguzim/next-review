@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
-import { AuthenticationTokenContext } from '@/contexts';
+import { AuthorizationTokenContext } from '@/contexts';
 
 import styles from './Navbar.module.css';
 import utilStyles from '@/styles/utils.module.css';
 
 export function Navbar() {
-  const { authenticationToken } = useContext(AuthenticationTokenContext);
+  const { authorizationToken } = useContext(AuthorizationTokenContext);
   
   return (
     <nav className={styles.container}>
@@ -29,7 +29,7 @@ export function Navbar() {
         Items
       </Link>
       <div className={utilStyles.right}>
-        {!authenticationToken && (<>
+        {!authorizationToken && (<>
           <Link href="/login" className={styles.navbarElement}>
             <Button primary size="large" label="Login" />
           </Link>
@@ -37,7 +37,7 @@ export function Navbar() {
             <Button primary size="large" label="Register" />
           </Link>
         </>)}
-        {authenticationToken && (<>
+        {authorizationToken && (<>
           <Link href="/logout" className={styles.navbarElement}>
             <Button size="large" label="Logout" />
           </Link>

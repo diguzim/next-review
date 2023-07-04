@@ -1,4 +1,5 @@
 import { Creature } from "@/types";
+import { mapCreatureFromRequest } from "@/utils";
 
 const baseUrl = `${process.env.BACKEND_HOST}/creatures`
 
@@ -16,14 +17,17 @@ export const CreatureService = {
     const creature = mapCreatureFromRequest(json);
     return creature;
   },
-  // create: async (params: ICreature, user: UserDoc) => {
-  //     const creature = Creature.build({
-  //         ...params,
-  //         userId: user?.id
-  //     });
-  //     await creature.save();
-  //     return creature;
-  // },
+  create: async (params: Creature, authorizationToken: string) => {
+    console.log('authorizationToken no service', authorizationToken)
+    return await fetch(baseUrl, {
+      method: 'POST',
+      body: JSON.stringify(params),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authorizationToken}`
+      }
+    });
+  },
   // update: async (id: string, params: ICreature) => {
   //     const creature = await Creature.findByIdAndUpdate(id, params, { new: true });
   //     return creature;
@@ -32,10 +36,3 @@ export const CreatureService = {
   //     return await Creature.findByIdAndDelete(id);
   // }
 };
-
-function mapCreatureFromRequest(creature: any): Creature {
-  return {
-    id: creature._id,
-    name: creature.name,
-  }
-}

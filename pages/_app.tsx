@@ -2,14 +2,14 @@ import Layout from '@/components/Layout';
 import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
-import { AuthenticationTokenProvider } from '@/contexts';
+import { AuthorizationTokenProvider } from '@/contexts';
 
 export default function App({ Component, pageProps }: AppProps) {
   return(
-    <AuthenticationTokenProvider>
+    <AuthorizationTokenProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout> 
-    </AuthenticationTokenProvider>
+    </AuthorizationTokenProvider>
   );
 }

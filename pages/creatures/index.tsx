@@ -21,6 +21,7 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
           </li>
         ))}
       </ul>
+      {/* TODO: if user is logged in show some create creature button */}
     </>
   );
 }

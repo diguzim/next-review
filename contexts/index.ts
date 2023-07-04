@@ -1,1 +1,1 @@
-export * from './AuthenticationTokenContext';
+export * from './AuthorizationTokenContext';

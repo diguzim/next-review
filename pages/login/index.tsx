@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
 import utilStyles from '@/styles/utils.module.css';
-import { AuthenticationTokenContext } from "@/contexts";
+import { AuthorizationTokenContext } from "@/contexts";
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ export default function Register() {
   const [error, setError] = useState(null)
 
   const router = useRouter();
-  const { setAuthenticationToken } = useContext(AuthenticationTokenContext);
+  const { setAuthorizationToken } = useContext(AuthorizationTokenContext);
   
   return (
     <>
@@ -43,7 +43,7 @@ export default function Register() {
     
     if (response.ok) {
       setError(null);
-      setAuthenticationToken(result.authenticationToken);
+      setAuthorizationToken(result.authenticationToken);
       router.push('/login/success');
     } else {
       setError(result.error);

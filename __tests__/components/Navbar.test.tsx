@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { AuthenticationTokenContext } from "@/contexts";
+import { AuthorizationTokenContext } from "@/contexts";
 import { render, screen } from "@testing-library/react";
 
 describe('Navbar', () => {
@@ -19,18 +19,18 @@ describe('Navbar', () => {
     expect(loginLinkElement).toBeInTheDocument();
   });
   
-  it('renders the logout button when there is an authentication token', () => {
-    const authenticationToken = 'some-token'
+  it('renders the logout button when there is an authorization token', () => {
+    const authorizationToken = 'some-token'
     
     render(
-      <AuthenticationTokenContext.Provider
+      <AuthorizationTokenContext.Provider
         value={{
-          authenticationToken,
-          setAuthenticationToken: jest.fn()
+          authorizationToken,
+          setAuthorizationToken: jest.fn()
         }}
       >
         <Navbar />
-      </AuthenticationTokenContext.Provider>
+      </AuthorizationTokenContext.Provider>
     );
 
     const logoutButtonElement = screen.getByText('Logout');

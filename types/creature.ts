@@ -1,4 +1,4 @@
 export interface Creature {
-  id: string;  
+  id?: string;  
   name: string;
 }

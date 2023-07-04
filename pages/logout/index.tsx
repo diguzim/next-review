@@ -1,12 +1,12 @@
-import { AuthenticationTokenContext } from "@/contexts";
+import { AuthorizationTokenContext } from "@/contexts";
 import { useContext, useEffect } from "react";
 
 export default function Logout() {
-  const { setAuthenticationToken } = useContext(AuthenticationTokenContext);
+  const { setAuthorizationToken } = useContext(AuthorizationTokenContext);
 
   useEffect(() => {
-    setAuthenticationToken(null);
-  }, [setAuthenticationToken]);
+    setAuthorizationToken(null);
+  }, [setAuthorizationToken]);
   
   return (
     <h1>You have sucessfully logged out</h1>
