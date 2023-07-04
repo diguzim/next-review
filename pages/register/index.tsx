@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Layout from "@/components/Layout";
 import TextInput from "@/components/TextInput";
 
 import utilStyles from '@/styles/utils.module.css';
@@ -17,19 +16,17 @@ export default function Register() {
   const router = useRouter();
   
   return (
-    <Layout>
+    <>
       <Head>
-        <title>Sign up</title>
+        <title>Register</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        { error && <h2 className={utilStyles.alert}>{error}</h2> }
-        <Form title="Create your account" onSubmit={onSubmit}>
-          <TextInput label="Name" value={name} onChangeText={setName} />
-          <TextInput label="Email" value={email} onChangeText={setEmail} />
-          <TextInput label="Password" type="password" value={password} onChangeText={setPassword} />
-        </Form>
-      </section>
-    </Layout>
+      { error && <h2 className={utilStyles.alert}>{error}</h2> }
+      <Form title="Create your account" onSubmit={onSubmit}>
+        <TextInput label="Name" value={name} onChangeText={setName} />
+        <TextInput label="Email" value={email} onChangeText={setEmail} />
+        <TextInput label="Password" type="password" value={password} onChangeText={setPassword} />
+      </Form>
+    </>
   );
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {

@@ -16,6 +16,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           content="Reviewing Next.js"
         />
         <meta name="og:title" content={siteTitle} />
+        <title>Next review</title>
       </Head>
       <header className={styles.header}>
         <Navbar />
