@@ -5,6 +5,7 @@ import { CreatureService } from "@/lib";
 import utilStyles from '@/styles/utils.module.css';
 import { Creature } from "@/types";
 import { useAuth } from "@/hooks";
+import Table from "@/components/Table";
 
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
   const { isLoggedIn } = useAuth();
@@ -14,16 +15,36 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
       <Head>
         <title>Creatures</title>
       </Head>
-      <h2 className={utilStyles.headingLg}>Creatures</h2>
-      <ul className={utilStyles.list}>
-        {creatures.map(({ id, name }) => (
-          <li className={utilStyles.listItem} key={id}>
-            <Link href={`/creatures/${id}`}>
-              {name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <h1 className={utilStyles.headingLg}>Creatures</h1>
+
+      <Table.Table>
+        <Table.TableHead>
+          <Table.TableRow>
+            <Table.TableCell>Name</Table.TableCell>
+            <Table.TableCell>Items</Table.TableCell>
+          </Table.TableRow>
+        </Table.TableHead>
+        <Table.TableBody>
+          {creatures.map(({ id, name }) => (
+            <Table.TableRow key={id}>
+              <Table.TableCell>
+                <Link href={`/creatures/${id}`}>
+                  {name}
+                </Link>
+              </Table.TableCell>
+              <Table.TableCell>
+                {/* {items.map(({ id, name }) => (
+                  <Link href={`/items/${id}`} id={id}>
+                    {name}
+                  </Link>
+                ))} */}
+                ...
+              </Table.TableCell>
+            </Table.TableRow>
+          ))}
+        </Table.TableBody>
+      </Table.Table>
+      
       {isLoggedIn && (
         <Link href="/creatures/new">
           Create new creature
