@@ -18,7 +18,6 @@ export const CreatureService = {
     return creature;
   },
   create: async (params: Creature, authorizationToken: string) => {
-    console.log('authorizationToken no service', authorizationToken)
     return await fetch(baseUrl, {
       method: 'POST',
       body: JSON.stringify(params),
