@@ -1,10 +1,8 @@
-import Form from "@/components/Form";
-import TextInput from "@/components/TextInput";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import utilStyles from "@/styles/utils.module.css";
 import { useAuth } from "@/hooks";
+import CreatureForm from "@/forms/CreatureForm";
 
 export default function NewCreature() {
   const [name, setName] = useState("");
@@ -22,13 +20,13 @@ export default function NewCreature() {
   }, [isLoggedIn, router]);
 
   return (
-    <>
-      { success && <h2 className={utilStyles.success}>Creature created!</h2> }
-      { error && <h2 className={utilStyles.alert}>{error}</h2> }
-      <Form title="Create a new creature" onSubmit={onSubmit}>
-        <TextInput label="Name" value={name} onChangeText={setName} />
-      </Form>
-    </>
+    <CreatureForm
+      onSubmit={onSubmit}
+      success={success}
+      error={error}
+      name={name}
+      setName={setName}
+    />
   );
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {

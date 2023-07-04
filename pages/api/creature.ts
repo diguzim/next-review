@@ -10,10 +10,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const creatureParams = { name };
   const requestResponse = await CreatureService.create(creatureParams, authorizationToken as string);
   const json = await requestResponse.json()
+  
+  res.status(requestResponse.status)
 
-  const creature = mapCreatureFromRequest(json);
-
-  // This can be enhanced
-  // probably it's best to create a helper to generically transform a fetch response in NextApiResponse (because we are still missing things, like headers)
-  return res.status(requestResponse.status).json(creature)
+  if (requestResponse.ok) {
+    const creature = mapCreatureFromRequest(json);
+    return res.json(creature)
+  } else {
+    return res.json(json)
+  }
 }

@@ -1,2 +1,3 @@
 - Consider using Tailwind
 - Create a proper creatures page
+- Add loader to button
