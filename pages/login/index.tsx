@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import TextInput from "@/components/TextInput";
+import Form from "@/components/Form";
 
-import utilStyles from '@/styles/utils.module.css';
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Form from "@/components/Form";
+
+import utilStyles from '@/styles/utils.module.css';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -40,16 +41,13 @@ export default function Register() {
     });
 
     const result = await response.json();
-    console.log('result', result)
     
     if (response.ok) {
       setError(null);
-      console.log('result.authenticationToken', result.authenticationToken)
-      localStorage.setItem("authenticationToken", result.authenticationToken);
-      router.push("/login/success");
+      localStorage.setItem('authenticationToken', result.authenticationToken);
+      router.push('/login/success');
     } else {
       setError(result.error);
     }
-    
   }
 }

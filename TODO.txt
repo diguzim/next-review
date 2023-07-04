@@ -1,3 +1,2 @@
-- Registration and login
 - Consider using Tailwind
 - Create a proper creatures page
