@@ -27,10 +27,16 @@ export const CreatureService = {
       }
     });
   },
-  // update: async (id: string, params: ICreature) => {
-  //     const creature = await Creature.findByIdAndUpdate(id, params, { new: true });
-  //     return creature;
-  // },
+  update: async (id: string, params: Creature, authorizationToken: string) => {
+    return await fetch(`${baseUrl}/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(params),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authorizationToken}`
+      }
+    });
+  },
   // delete: async (id: string) => {
   //     return await Creature.findByIdAndDelete(id);
   // }

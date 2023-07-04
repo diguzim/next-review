@@ -3,15 +3,18 @@ import { useRouter } from "next/router";
 
 import { useAuth } from "@/hooks";
 import CreatureForm from "@/forms/CreatureForm";
+import { Creature } from "@/types";
+import { CreatureService } from "@/lib";
 
-export default function NewCreature() {
-  const [name, setName] = useState("");
+export default function EditCreature({ creature }: { creature: Creature }) {
+  const [name, setName] = useState(creature.name);
 
   const [error, setError] = useState(null as string | null);
   const [success, setSuccess] = useState(false);
 
   const { authorizationToken, isLoggedIn } = useAuth();
   const router = useRouter();
+  console.log('isLoggedIn', isLoggedIn);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -21,6 +24,7 @@ export default function NewCreature() {
 
   return (
     <CreatureForm
+      creatureId={creature.id}
       onSubmit={onSubmit}
       success={success}
       error={error}
@@ -35,8 +39,8 @@ export default function NewCreature() {
     setSuccess(false);
 
     const creatureData = { name };
-    const response = await fetch("/api/creature", {
-      method: "POST",
+    const response = await fetch(`/api/creature/${creature.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${authorizationToken}`,
@@ -52,4 +56,31 @@ export default function NewCreature() {
       setSuccess(false);
     }
   }
+}
+
+export async function getStaticProps({ params: { id } }: { params: { id: string } }) {
+  const creature = await CreatureService.get(id);
+
+  return {
+    props: {
+      creature,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const creatures = await CreatureService.getAll();
+
+  const paths = creatures.map((creature: Creature) => {
+    return {
+      params: {
+        id: creature.id,
+      }
+    }
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
 }
