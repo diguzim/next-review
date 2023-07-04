@@ -19,7 +19,7 @@ export function Navbar() {
           className={utilStyles.borderCircle}
           height={64}
           width={64}
-          alt=""
+          alt="Gaz\'Haragoth"
         />
       </Link>
       <Link href="/creatures" className={styles.navbarElement}>
@@ -27,9 +27,6 @@ export function Navbar() {
       </Link>
       <Link href="/creatures" className={styles.navbarElement}>
         Items
-      </Link>
-      <Link href="/creatures" className={styles.navbarElement}>
-        Something
       </Link>
       <div className={utilStyles.right}>
         {!authenticationToken && (<>
