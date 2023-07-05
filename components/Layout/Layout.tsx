@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </Head>
       { isAuthorizationTokenLoaded && 
         <>
-          <header className={styles.header}>
+          <header className={styles.header}> {/* Consider removing this */}
             <Navbar />
           </header>
           <main className={styles.main}>{children}</main>
