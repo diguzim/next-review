@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 
 const meta: Meta<typeof Table.Table> = {
-  title: 'Example/Table',
+  title: 'Components/Table',
   component: Table.Table,
   tags: ['autodocs'],
   argTypes: {
