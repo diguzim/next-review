@@ -7,7 +7,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')]
   },
   webpack: (config) => {
-    config.resolve.alias['@styles'] = path.join(__dirname, './styles');
+    config.resolve.alias['@'] = path.join(__dirname, './');
     return config;
   }
 }
