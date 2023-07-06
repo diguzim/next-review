@@ -37,7 +37,13 @@ export const CreatureService = {
       }
     });
   },
-  // delete: async (id: string) => {
-  //     return await Creature.findByIdAndDelete(id);
-  // }
+  delete: async (id: string, authorizationToken: string) => {
+    return await fetch(`${baseUrl}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authorizationToken}`
+      }
+    });
+  }
 };

@@ -49,7 +49,6 @@ export default function NewCreature() {
     } else {
       const result = await response.json();
       setError(result.error);
-      setSuccess(false);
     }
   }
 }

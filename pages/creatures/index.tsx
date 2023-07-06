@@ -1,14 +1,42 @@
 import Link from "next/link";
 import Head from "next/head";
-import { CreatureService } from "@/lib";
-
-import { Creature } from "@/types";
-import { useAuth } from "@/hooks";
-import Table from "@/components/Table";
+import { useState } from "react";
+import { Table, TableHead, TableBody, TableRow, TableCell } from "@/components/Table";
 import Heading from "@/components/Heading";
 
+import { CreatureService } from "@/lib";
+import { Creature } from "@/types";
+import { useAuth } from "@/hooks";
+
+import utilStyles from "@/styles/utils.module.css";
+import styles from './index.module.css';
+
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, authorizationToken } = useAuth();
+
+  const [error, setError] = useState(null as string | null);
+
+  async function onDelete(creatureId: string) {
+    const confirmation = confirm('Are you sure you want to delete this creature?');
+
+    if (confirmation) {
+      setError(null);
+
+      const response = await fetch(`/api/creature/${creatureId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authorizationToken}`,
+        }
+      });
+  
+      if (!response.ok) {
+        const result = await response.json();
+        setError(result.error);
+      }
+    }
+
+  }
 
   return (
     <>
@@ -16,34 +44,48 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
         <title>Creatures</title>
       </Head>
       <Heading size={1}>Creatures</Heading>
+      { !!error && <Heading size={2} className={utilStyles.alert}>{error}</Heading> }
 
-      <Table.Table>
-        <Table.TableHead>
-          <Table.TableRow>
-            <Table.TableCell>Name</Table.TableCell>
-            <Table.TableCell>Items</Table.TableCell>
-          </Table.TableRow>
-        </Table.TableHead>
-        <Table.TableBody>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>Items</TableCell>
+            { isLoggedIn && (
+              <TableCell>Actions</TableCell>  
+            )}
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {creatures.map(({ id, name }) => (
-            <Table.TableRow key={id}>
-              <Table.TableCell>
+            <TableRow key={id}>
+              <TableCell>
                 <Link href={`/creatures/${id}`}>
                   {name}
                 </Link>
-              </Table.TableCell>
-              <Table.TableCell>
+              </TableCell>
+              <TableCell>
                 {/* {items.map(({ id, name }) => (
                   <Link href={`/items/${id}`} id={id}>
                     {name}
                   </Link>
                 ))} */}
                 ...
-              </Table.TableCell>
-            </Table.TableRow>
+              </TableCell>
+              { isLoggedIn && (
+                <TableCell className={styles.centeredContainer}>
+                  <Link href={`/creatures/${id}/edit`}>
+                    Edit
+                  </Link>
+                  <Link href="#" onClick={() => onDelete(id as string)}>
+                    Delete
+                  </Link>
+                </TableCell>  
+              )}
+            </TableRow>
           ))}
-        </Table.TableBody>
-      </Table.Table>
+        </TableBody>
+      </Table>
       
       {isLoggedIn && (
         <Link href="/creatures/new">

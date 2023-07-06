@@ -1,60 +1,51 @@
 import styles from './Table.module.css';
 
-interface TableProps {
+interface DefaultProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-interface TableHeadProps {
-  children: React.ReactNode;
-}
+interface TableProps extends DefaultProps { }
+interface TableHeadProps extends DefaultProps { }
+interface TableBodyProps extends DefaultProps { }
+interface TableRowProps extends DefaultProps { }
+interface TableCellProps extends DefaultProps { }
 
-interface TableBodyProps {
-  children: React.ReactNode;
-}
-
-interface TableRowProps {
-  children: React.ReactNode;
-}
-
-interface TableCellProps {
-  children: React.ReactNode;
-}
-
-const Table = ({ children }: TableProps) => {
+export const Table = ({ children, className }: TableProps) => {
   return (
-    <table className={styles.table}>
+    <table className={`${styles.table} ${className}`}>
       {children}
     </table>
   );
 }
 
-const TableHead = ({ children }: TableHeadProps) => {
+export const TableHead = ({ children, className }: TableHeadProps) => {
   return (
-    <thead className={styles.tableHead}>
+    <thead className={`${styles.tableHead} ${className}`}>
       {children}
     </thead>
   );
 }
 
-const TableBody = ({ children }: TableBodyProps) => {
+export const TableBody = ({ children, className }: TableBodyProps) => {
   return (
-    <tbody className={styles.tableBody}>
+    <tbody className={`${styles.tableBody} ${className}`}>
       {children}
     </tbody>
   );
 }
 
-const TableRow = ({ children }: TableRowProps) => {
+export const TableRow = ({ children, className }: TableRowProps) => {
   return (
-    <tr className={styles.tableRow}>
+    <tr className={`${styles.tableRow} ${className}`}>
       {children}
     </tr>
   );
 }
 
-const TableCell = ({ children }: TableCellProps) => {
+export const TableCell = ({ children, className }: TableCellProps) => {
   return (
-    <td className={styles.tableCell}>
+    <td className={`${styles.tableCell} ${className}`}>
       {children}
     </td>
   );
