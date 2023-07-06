@@ -1,11 +1,17 @@
+@import '@styles/breakpoints';
+
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 0.5rem 1rem;
   margin: 0;
   background-color: #1f2937;
-  display: flex;
-  flex-direction: row;
   align-items: center;
+
+  @media (min-width: $large) {
+    flex-direction: row;
+  }
 }
 
 .navbarElement {

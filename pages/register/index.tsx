@@ -1,7 +1,7 @@
 import Head from "next/head";
 import TextInput from "@/components/TextInput";
 
-import utilStyles from '@/styles/utils.module.css';
+import utilStyles from '@/styles/utils.module.scss';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Form from "@/components/Form";

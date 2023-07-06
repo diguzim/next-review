@@ -1,4 +1,4 @@
-import styles from './TextInput.module.css';
+import styles from './TextInput.module.scss';
 
 // <TextInput label="Email" placeholder="Enter your email" value="me@me" onChange={handleChange} className="my-custom-class" type="text" />
 

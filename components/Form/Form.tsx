@@ -1,6 +1,7 @@
 import Button from '@/components/Button';
-import styles from './Form.module.css'
-import Heading from '../Heading';
+import Heading from '@/components/Heading';
+
+import styles from './Form.module.scss'
 
 interface FormProps {
   /**

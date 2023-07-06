@@ -8,8 +8,8 @@ import { CreatureService } from "@/lib";
 import { Creature } from "@/types";
 import { useAuth } from "@/hooks";
 
-import utilStyles from "@/styles/utils.module.css";
-import styles from './index.module.css';
+import utilStyles from "@/styles/utils.module.scss";
+import styles from './index.module.scss';
 
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
   const { isLoggedIn, authorizationToken } = useAuth();

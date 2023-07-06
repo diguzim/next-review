@@ -1,7 +1,6 @@
-// components/Heading/Heading.tsx
-
 import React, { ReactNode, ElementType } from 'react';
-import styles from './Heading.module.css';
+
+import styles from './Heading.module.scss';
 
 type HeadingProps = {
   size: 1 | 2 | 3 | 4 | 5 | 6;

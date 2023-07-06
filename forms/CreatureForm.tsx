@@ -1,7 +1,7 @@
 import Form from "@/components/Form";
 import Heading from "@/components/Heading";
 import TextInput from "@/components/TextInput";
-import utilStyles from "@/styles/utils.module.css";
+import utilStyles from "@/styles/utils.module.scss";
 
 interface FormProps {
   creatureId?: string;

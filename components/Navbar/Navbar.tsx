@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 import { AuthorizationTokenContext } from '@/contexts';
 
-import styles from './Navbar.module.css';
-import utilStyles from '@/styles/utils.module.css';
+import styles from './Navbar.module.scss';
+import utilStyles from '@/styles/utils.module.scss';
 
 export function Navbar() {
   const { authorizationToken } = useContext(AuthorizationTokenContext);

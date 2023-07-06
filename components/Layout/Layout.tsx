@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 import Head from 'next/head';
-
-import styles from './Layout.module.css';
 import Navbar from "@/components/Navbar";
+
 import { useAuth } from "@/hooks";
+
+import styles from './Layout.module.scss';
 
 export const siteTitle = 'Reviewing Next.js';
 

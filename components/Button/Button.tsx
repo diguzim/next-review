@@ -1,5 +1,5 @@
 import { capitalizeFirstLetter } from '@/utils';
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
   /**

@@ -5,7 +5,7 @@ import Form from "@/components/Form";
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
-import utilStyles from '@/styles/utils.module.css';
+import utilStyles from '@/styles/utils.module.scss';
 import { AuthorizationTokenContext } from "@/contexts";
 import Heading from "@/components/Heading";
 
