@@ -12,7 +12,7 @@ export function Navbar() {
   
   return (
     <nav className={styles.container}>
-      <Link href="/" className={utilStyles.colorInherit}>
+      <Link href="/">
         <Image
           priority
           src="/images/Gaz'Haragoth.gif"

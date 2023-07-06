@@ -1,7 +1,7 @@
-import utilStyles from '@/styles/utils.module.css';
+import Heading from '@/components/Heading';
 
 export default function Register() {
   return (
-    <h1 className={utilStyles.headingLg}>Thanks for registering</h1>
+    <Heading size={1}>Thanks for registering</Heading>
   );
 }

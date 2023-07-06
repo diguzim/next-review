@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import styles from './Form.module.css'
+import Heading from '../Heading';
 
 interface FormProps {
   /**
@@ -31,7 +32,7 @@ const Form = ({
 }: React.PropsWithChildren<FormProps>) => {
   return (
     <section className={styles.container}>
-      <h1>{title}</h1>
+      <Heading size={1} >{title}</Heading>
       <form onSubmit={onSubmit} className={styles.form}>
         {children}
         <Button label={submitText} type="submit" size='large' />

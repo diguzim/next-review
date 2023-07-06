@@ -2,10 +2,10 @@ import Link from "next/link";
 import Head from "next/head";
 import { CreatureService } from "@/lib";
 
-import utilStyles from '@/styles/utils.module.css';
 import { Creature } from "@/types";
 import { useAuth } from "@/hooks";
 import Table from "@/components/Table";
+import Heading from "@/components/Heading";
 
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
   const { isLoggedIn } = useAuth();
@@ -15,7 +15,7 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
       <Head>
         <title>Creatures</title>
       </Head>
-      <h1 className={utilStyles.headingLg}>Creatures</h1>
+      <Heading size={1}>Creatures</Heading>
 
       <Table.Table>
         <Table.TableHead>

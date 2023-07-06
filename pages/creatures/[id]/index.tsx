@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import utilStyles from '@/styles/utils.module.css';
 import { CreatureService } from '@/lib';
 import { Creature } from '@/types';
+import Heading from '@/components/Heading';
 
 export default function Creature({ creature }: { creature: Creature }) {
   return (
@@ -11,7 +11,7 @@ export default function Creature({ creature }: { creature: Creature }) {
         <title>{creature.name}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{creature.name}</h1>
+        <Heading size={1}>{creature.name}</Heading>
       </article>
     </>
   );

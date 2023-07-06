@@ -5,6 +5,7 @@ import utilStyles from '@/styles/utils.module.css';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Form from "@/components/Form";
+import Heading from "@/components/Heading";
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -20,7 +21,7 @@ export default function Register() {
       <Head>
         <title>Register</title>
       </Head>
-      { error && <h2 className={utilStyles.alert}>{error}</h2> }
+      { error && <Heading size={2} className={utilStyles.alert}>{error}</Heading> }
       <Form title="Create your account" onSubmit={onSubmit}>
         <TextInput label="Name" value={name} onChangeText={setName} />
         <TextInput label="Email" value={email} onChangeText={setEmail} />

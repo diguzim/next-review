@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 import utilStyles from '@/styles/utils.module.css';
 import { AuthorizationTokenContext } from "@/contexts";
+import Heading from "@/components/Heading";
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -22,7 +23,7 @@ export default function Register() {
       <Head>
         <title>Login</title>
       </Head>
-      { error && <h2 className={utilStyles.alert}>{error}</h2> }
+      { error && <Heading size={1} className={utilStyles.alert}>{error}</Heading> }
       <Form title="Login" onSubmit={onSubmit}>
         <TextInput label="Email" value={email} onChangeText={setEmail} />
         <TextInput label="Password" type="password" value={password} onChangeText={setPassword} />

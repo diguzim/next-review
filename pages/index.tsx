@@ -1,7 +1,8 @@
+import Heading from '@/components/Heading';
 import Layout from '@/components/Layout';
 
 export default function Home() {
   return (
-    <h1>Welcome to Home</h1>
+    <Heading size={1}>Welcome to Home</Heading>
   )
 }

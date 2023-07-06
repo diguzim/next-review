@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading";
 import { AuthorizationTokenContext } from "@/contexts";
 import { useContext, useEffect } from "react";
 
@@ -9,6 +10,6 @@ export default function Logout() {
   }, [setAuthorizationToken]);
   
   return (
-    <h1>You have sucessfully logged out</h1>
+    <Heading size={1}>You have sucessfully logged out</Heading>
   )
 }

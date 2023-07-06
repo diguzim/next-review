@@ -33,8 +33,8 @@ describe('Layout', () => {
     );
     render(<Layout>{children}</Layout>, { wrapper: Wrapper });
 
-    const headerComponents = screen.getByRole('banner');
-    expect(headerComponents).toBeInTheDocument();
+    const navbar = screen.getByRole('navigation');
+    expect(navbar).toBeInTheDocument();
 
     const mainComponents = screen.getByRole('main');
     expect(mainComponents).toBeInTheDocument();
