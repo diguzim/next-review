@@ -1,5 +1,6 @@
+- Add responsiveness
 - Fix error that is happening when trying to delete creature when backend is turned off
+- Create footer
 - Consider using Tailwind
-- Create a proper creatures page
-- Add loader to button
+- Add loaders
 - Define more linter rules (semi, import order, unused variables, white spaces, hooks order)
