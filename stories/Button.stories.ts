@@ -29,16 +29,23 @@ export const Secondary: Story = {
   },
 };
 
-export const Large: Story = {
+export const Small: Story = {
   args: {
-    size: 'large',
+    size: 'small',
     label: 'Button',
   },
 };
 
-export const Small: Story = {
+export const Medium: Story = {
   args: {
-    size: 'small',
+    size: 'medium',
+    label: 'Button',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
     label: 'Button',
   },
 };
