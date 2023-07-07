@@ -1,4 +1,5 @@
 - Add responsiveness
+- Make constants/breakpoints.ts reference values defined in styles.breakpoints.scss
 - Fix error that is happening when trying to delete creature when backend is turned off
 - Create footer
 - Consider using Tailwind

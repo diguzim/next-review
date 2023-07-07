@@ -2,3 +2,10 @@ $primary-color: blue;
 $secondary-color: white;
 $success-color: green;
 $error-color: red;
+
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  successColor: $success-color;
+  errorColor: $error-color;
+}
