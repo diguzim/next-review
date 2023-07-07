@@ -1,7 +1,7 @@
 import Head from "next/head";
 import TextInput from "@/components/TextInput";
 
-import utilStyles from '@/styles/utils.module.scss';
+import designSystem from '@/styles/designSystem.module.scss';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Form from "@/components/Form";
@@ -21,7 +21,7 @@ export default function Register() {
       <Head>
         <title>Register</title>
       </Head>
-      { error && <Heading size={2} className={utilStyles.alert}>{error}</Heading> }
+      { error && <Heading size={2} className={designSystem.error}>{error}</Heading> }
       <Form title="Create your account" onSubmit={onSubmit}>
         <TextInput label="Name" value={name} onChangeText={setName} />
         <TextInput label="Email" value={email} onChangeText={setEmail} />

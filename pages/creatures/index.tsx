@@ -8,7 +8,7 @@ import { CreatureService } from "@/lib";
 import { Creature } from "@/types";
 import { useAuth } from "@/hooks";
 
-import utilStyles from "@/styles/utils.module.scss";
+import designSystem from "@/styles/designSystem.module.scss";
 import styles from './index.module.scss';
 
 export default function Creatures({ creatures }: { creatures: Creature[] }) {
@@ -44,7 +44,7 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
         <title>Creatures</title>
       </Head>
       <Heading size={1}>Creatures</Heading>
-      { !!error && <Heading size={2} className={utilStyles.alert}>{error}</Heading> }
+      { !!error && <Heading size={2} className={designSystem.error}>{error}</Heading> }
 
       <Table>
         <TableHead>

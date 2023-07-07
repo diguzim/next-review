@@ -5,7 +5,7 @@ import Form from "@/components/Form";
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
-import utilStyles from '@/styles/utils.module.scss';
+import designSystem from '@/styles/designSystem.module.scss';
 import { AuthorizationTokenContext } from "@/contexts";
 import Heading from "@/components/Heading";
 
@@ -23,7 +23,7 @@ export default function Register() {
       <Head>
         <title>Login</title>
       </Head>
-      { error && <Heading size={1} className={utilStyles.alert}>{error}</Heading> }
+      { error && <Heading size={1} className={designSystem.error}>{error}</Heading> }
       <Form title="Login" onSubmit={onSubmit}>
         <TextInput label="Email" value={email} onChangeText={setEmail} />
         <TextInput label="Password" type="password" value={password} onChangeText={setPassword} />
