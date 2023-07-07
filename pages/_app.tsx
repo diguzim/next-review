@@ -1,15 +1,17 @@
 import Layout from '@/components/Layout';
 import type { AppProps } from 'next/app'
 
-import '@/styles/global.scss'
-import { AuthorizationTokenProvider } from '@/contexts';
+import '@/styles/globals.scss'
+import { AuthorizationTokenProvider, ThemesProvider } from '@/contexts';
 
 export default function App({ Component, pageProps }: AppProps) {
   return(
-    <AuthorizationTokenProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout> 
-    </AuthorizationTokenProvider>
+    <ThemesProvider>
+      <AuthorizationTokenProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout> 
+      </AuthorizationTokenProvider>
+    </ThemesProvider>
   );
 }

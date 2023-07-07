@@ -15,3 +15,10 @@
 .error {
   color: $error-color;
 }
+
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  successColor: $success-color;
+  errorColor: $error-color;
+}
