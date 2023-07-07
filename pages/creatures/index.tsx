@@ -45,7 +45,7 @@ export default function Creatures({ creatures }: { creatures: Creature[] }) {
       </Head>
       <Heading size={1}>Creatures</Heading>
       { !!error && <Heading size={2} className={designSystem.error}>{error}</Heading> }
-
+      
       <Table>
         <TableHead>
           <TableRow>

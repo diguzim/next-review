@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { withProviders } from "./decorators";
 
 import "@/styles/globals.scss"
 
@@ -12,6 +13,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [withProviders]
 };
 
 export default preview;
