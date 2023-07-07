@@ -1,0 +1,16 @@
+@import '@/styles/breakpoints';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background-color: #1f2937;
+  align-items: center;
+}
+
+.navbarElement {
+  margin-left: 2rem;
+  color: rgb(209, 213, 219);
+}

@@ -1,31 +1,29 @@
 import { breakpoints } from '@/constants';
 import { useState, useEffect } from 'react';
 
-const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState<string | null>(null);
+type screenSize = 'small' | 'medium' | 'large';
+
+export const useScreenSize = () => {
+  const [screenSize, setScreenSize] = useState('small' as screenSize);
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      const matchedBreakpoint = Object.entries(breakpoints).find(([_, breakpoint]) => width <= breakpoint);
+      const { innerWidth } = window;
 
-      if (matchedBreakpoint) {
-        setScreenSize(matchedBreakpoint[0]);
+      if (innerWidth < breakpoints.small) {
+        setScreenSize('small');
+      } else if (innerWidth >= breakpoints.small && innerWidth < breakpoints.medium) {
+        setScreenSize('medium');
       } else {
-        setScreenSize(null);
+        setScreenSize('large');
       }
     };
 
     handleResize();
 
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return screenSize;
 };
-
-export default useScreenSize;
