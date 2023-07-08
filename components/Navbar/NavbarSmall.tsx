@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 import styles from './NavbarSmall.module.scss';
-import utilStyles from '@/styles/utils.module.scss';
 
 import { MdMenu, MdClose, MdPerson } from 'react-icons/md'
+import { LeftLinkItems } from './LeftLinkItems';
+import { HomeLink } from './HomeLink';
+import { RightLinkItems } from './RightLinkItems';
 
 export const NavbarSmall = () => {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false);
@@ -38,16 +38,7 @@ export const NavbarSmall = () => {
         )}
       </>
       <>
-        <Link href="/">
-          <Image
-            priority
-            src="/images/Gaz'Haragoth.gif"
-            className={utilStyles.borderCircle}
-            height={64}
-            width={64}
-            alt="Gaz\'Haragoth"
-          />
-        </Link>
+        <HomeLink />
       </>
       <>
         {!isRightMenuOpen && (
@@ -60,125 +51,17 @@ export const NavbarSmall = () => {
     </nav>
     {isLeftMenuOpen && (
       <ul className={`${styles.menuItems} ${styles.left}`}>
-        <li>
-          <Link href="/creatures" className={styles.navbarElement}>
-            Creatures
-          </Link>
-        </li>
-        <HypotheticalHugeAmountOfLinks />
+        <LeftLinkItems />
       </ul>
     )}
 
     {isRightMenuOpen && (
       <ul className={`${styles.menuItems} ${styles.right}`}>
-        <HypotheticalHugeAmountOfLinks />
+        <RightLinkItems />
       </ul>
-      //     {!authorizationToken && (<>
-      //       <Link href="/login" className={styles.navbarElement}>
-      //         <Button primary size="large" label="Login" />
-      //       </Link>
-      //       <Link href="/register" className={styles.navbarElement}>
-      //         <Button primary size="large" label="Register" />
-      //       </Link>
-      //     </>)}
-      //     {authorizationToken && (<>
-      //       <Link href="/logout" className={styles.navbarElement}>
-      //         <Button size="large" label="Logout" />
-      //       </Link>
-      //       <Link href="/account" className={styles.navbarElement}>
-      //         <Button primary size="large" label="Account" />
-      //       </Link>
-      //     </>)}
-      //   </div>
     )}
     </>
     
   )
 }
 
-const HypotheticalHugeAmountOfLinks = () => {
-  return (
-    <>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-      <li>
-        <Link href="/creatures" className={styles.navbarElement}>
-          Items
-        </Link>
-      </li>
-    </>
-  )
-}
