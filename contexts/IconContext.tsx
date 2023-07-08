@@ -8,7 +8,7 @@ export const IconProvider = ({ children }: { children: React.ReactNode }) => {
     <IconContext.Provider
       value={{
         color: colors.primaryColor,
-        size: "1em",
+        size: "2em",
         style: { verticalAlign: 'middle' }
       }}
     >

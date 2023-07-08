@@ -1,14 +1,13 @@
 import { useScreenSize } from '@/hooks';
 import { NavbarLarge } from './NavbarLarge';
+import { NavbarSmall } from './NavbarSmall';
 
 export function Navbar() {
   const size = useScreenSize();
   
   return (
     <>
-      { size === "large" ? <NavbarLarge /> : <p>small</p> }
-    
-    
+      { size === "large" ? <NavbarLarge /> : <NavbarSmall /> }
     </>
   );
 }

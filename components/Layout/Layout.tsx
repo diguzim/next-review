@@ -28,6 +28,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           <main className={styles.main}>{children}</main>
         </>
       }
+      <footer className={styles.footer}>
+        <p>Imagine some really nice footer here</p>
+      </footer>
     </div>
   )
 }

@@ -1,0 +1,33 @@
+.mainNav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1f2937;
+  padding: 0.5rem 1rem;
+  flex-direction: row;
+  margin: 0;
+  align-items: center;
+}
+
+.menuItems {
+  position: fixed;
+  height: 100%;
+
+  list-style: none;
+  
+  margin: 0;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  // Remove the following two lines
+  background-color: orange;
+  width: 90%;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
