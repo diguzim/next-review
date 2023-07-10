@@ -1,3 +1,5 @@
+@import '@/styles/colors';
+
 .mainNav {
   display: flex;
   justify-content: space-between;
@@ -21,8 +23,18 @@
   scrollbar-width: none;
 
   // Remove the following two lines
-  background-color: orange;
-  width: 90%;
+  background-color: $primary-color;
+  width: 80%;
+
+  & > li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+
+    &:first-child {
+      border-top: 1px solid #ccc;
+    }
+  }
 }
 
 .left {
